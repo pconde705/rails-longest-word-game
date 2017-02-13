@@ -1,0 +1,13 @@
+<h1>Word#game</h1>
+<p>Find me in app/views/word/game.html.erb</p>
+
+<p>Here is your grid:</p>
+<p><%= @nine_grid %></p>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="hidden" name="grid" value="<%= @nine_grid.join %>">
+  <input type="hidden" name="timer" value="<%= Time.now %>">
+  <input type="text" name="name">
+  <input type="submit">
+</form>
